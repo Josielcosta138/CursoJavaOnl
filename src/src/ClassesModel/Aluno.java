@@ -132,6 +132,24 @@ public class Aluno {
         return (nota1 + nota2 + nota3 + nota4) /4;
     }
 
+    public String getResultadoFinal(){
+
+        String resultado = "";
+        if (getMediaNota() >= 7){
+            resultado = "APROVADO";
+            if (getMediaNota() > 9){
+                resultado = "PARABENS ACIMA DA MÉDIA";
+            }
+
+        } else if (getMediaNota() < 7 && getMediaNota() >=5) {
+            resultado ="RECUPERAÇão";
+        }else {
+            resultado = "REPROVADO";
+        }
+
+        return resultado;
+    }
+
     @Override
     public String toString() {
         return "Aluno{" +
