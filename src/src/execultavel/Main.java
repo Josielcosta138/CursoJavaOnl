@@ -1,10 +1,16 @@
 package execultavel;
 
-import cadastros.cadastroAluno;
+
+import cadastros.cadastroProfessor;
+
+import javax.swing.*;
+import java.util.Calendar;
 
 public class Main {
     public static void main(String[] args) {
-        cadastroAluno.cadastrar();
-    }
 
+        Execucao.chamaMenuPrincipal();
+
+    }
 }
+
