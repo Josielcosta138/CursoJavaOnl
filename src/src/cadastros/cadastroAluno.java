@@ -7,8 +7,6 @@ public class cadastroAluno {
     public static void cadastrar(){
 
         String nome = JOptionPane.showInputDialog(null,"Informe nome");
-        String idadE = JOptionPane.showInputDialog(null,"Informe idade");
-        int idade = Integer.parseInt(idadE);
         String dataNascimento = JOptionPane.showInputDialog(null,"Informe dataNascimento");
         String numeroCpf = JOptionPane.showInputDialog(null,"Informe numeroCpf");
         String nomePai = JOptionPane.showInputDialog(null,"Informe nomePai");
@@ -17,7 +15,9 @@ public class cadastroAluno {
         String NomeEscola = JOptionPane.showInputDialog(null,"Informe NomeEscola");
 
 
-        Aluno aluno1 = new Aluno(nome,idade,dataNascimento,numeroCpf,nomePai,nomeMae,dataMatricula,NomeEscola,9.5,9.6,9.5,10.0);
+        Aluno aluno1 = new Aluno(nome,4,dataNascimento,numeroCpf,nomePai,nomeMae,dataMatricula,NomeEscola,9.5,9.6,9.5,10.0);
+
+
 
         int resposta = JOptionPane.showConfirmDialog(null," Deseja ver o aluno cadastrado e sua média ?");
 
