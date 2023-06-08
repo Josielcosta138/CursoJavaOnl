@@ -7,18 +7,19 @@ import javax.swing.*;
 
 public class cadastroProfessor {
 
-    public static void cadastrar(){
+    public static void cadastrarProfessor(){
 
-        String nome1 = JOptionPane.showInputDialog(null," Informe seu 1 nome");
-        ProfessorTeste professorTeste1 = new ProfessorTeste(nome1);
-        Validacoes.validarCamposNulo(nome1);
+        String nome1 = JOptionPane.showInputDialog(null," Nome 1 Professor");
+        ProfessorTeste prof1 = new ProfessorTeste(nome1);
+        Validacoes.validarCamposNulo(prof1.getNome());
+
+        String nome2 = JOptionPane.showInputDialog(null," Informe 2 Professor");
+        ProfessorTeste prof2 = new ProfessorTeste(nome2);
+        Validacoes.validarCamposNulo(prof2.getNome());
+
+        Validacoes.validarObjetosIguais(prof1.getNome(), prof2.getNome());
 
 
-        String nome2 = JOptionPane.showInputDialog(null," Informe seu 2 nome");
-        ProfessorTeste professorTeste2 =new ProfessorTeste(nome2);
-        Validacoes.validarCamposNulo(nome2);
-
-        Validacoes.validarObjetosIguais(nome1, nome2);
 
 
     }
