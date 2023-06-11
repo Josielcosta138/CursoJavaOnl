@@ -1,36 +1,29 @@
 package ClassesModel;
 
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 public class Aluno {
 
-    static String nome;
-    int idade;
-    String dataNascimento;
-    String numeroCpf;
-    String nomePai;
-    String nomeMae;
-    String dataMatricula;
-    String nomeEscola;
+    private String nome;
+    private int idade;
+    private String dataNascimento;
+    private String numeroCpf;
+    private String nomePai;
+    private String nomeMae;
+    private Date dataMatricula;
+    private String nomeEscola;
+    private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
-    Disciplina disciplina;
-
-    public Aluno(String nome, int idade, String dataNascimento, String numeroCpf, String nomePai, String nomeMae, String dataMatricula, String nomeEscola, Double nota1, Double nota2, Double nota3, Double nota4) {
-        this.nome = nome;
-        this.idade = idade;
-        this.dataNascimento = dataNascimento;
-        this.numeroCpf = numeroCpf;
-        this.nomePai = nomePai;
-        this.nomeMae = nomeMae;
-        this.dataMatricula = dataMatricula;
-        this.nomeEscola = nomeEscola;
-
-        this.disciplina = new Disciplina(); // Criado uma instância de Disciplina
-
-        this.disciplina.setNota1(nota1);
-        this.disciplina.setNota2(nota2);
-        this.disciplina.setNota3(nota3);
-        this.disciplina.setNota4(nota4);
+    public List<Disciplina> getDisciplinas() {
+        return disciplinas;
     }
 
+    public void setDisciplinas(List<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
+    }
 
     public String getNome() {
         return nome;
@@ -80,11 +73,11 @@ public class Aluno {
         this.nomeMae = nomeMae;
     }
 
-    public String getDataMatricula() {
+    public Date getDataMatricula() {
         return dataMatricula;
     }
 
-    public void setDataMatricula(String dataMatricula) {
+    public void setDataMatricula(Date dataMatricula) {
         this.dataMatricula = dataMatricula;
     }
 
@@ -96,28 +89,47 @@ public class Aluno {
         this.nomeEscola = nomeEscola;
     }
 
+    public double getMedia() {
 
-    public double getMediaNota()  {
-        return (disciplina.getNota1() + disciplina.getNota2() + disciplina.getNota3() + disciplina.getNota4()) /4;
-    }
-
-    public String getResultadoFinal(){
-
-        String resultado = "";
-        if (getMediaNota() >= 7){
-            resultado = "APROVADO";
-            if (getMediaNota() > 9){
-                resultado = "PARABENS ACIMA DA MÉDIA";
-            }
-
-        } else if (getMediaNota() < 7 && getMediaNota() >=5) {
-            resultado ="RECUPERAÇão";
-        }else {
-            resultado = "REPROVADO";
+        double somaNotas = 0.0;
+        for (Disciplina disciplina : disciplinas) {
+            somaNotas += disciplina.getNota();
         }
 
-        return resultado;
+        return somaNotas / disciplinas.size();
     }
+
+    public String getResultado(){
+
+        String resultado = "";
+        if (getMedia() >=7){
+            resultado = ("Aprovado!" +" Média: "+ getMedia());
+
+        } else if (getMedia() >=5 && getMedia() < 7) {
+            resultado = ("Recupereção !" +" Média: "+ getMedia());
+        } else {
+            resultado = ("Reprovado !" +" Média: "+ getMedia());
+        }
+       return resultado;
+    }
+
+    /*
+    public static void validarResultadoFim(String nome, Double media, String resultado ){
+        int resposta = JOptionPane.showConfirmDialog(null," Deseja ver o aluno cadastrado e sua média ?");
+
+        if (resposta == 0){
+            JOptionPane.showMessageDialog(null," SIM!! \n " +
+                    " Aluno "+ nome +
+                    "\n Média: " + media+
+                    "\n Resultado : " + resultado
+            );
+        }else if (resposta == 1){
+            JOptionPane.showMessageDialog(null, "NÃO");
+        } else if (resposta == 2) {
+            JOptionPane.showMessageDialog(null,"CANCELADO");
+        }
+
+    } */
 
     @Override
     public String toString() {

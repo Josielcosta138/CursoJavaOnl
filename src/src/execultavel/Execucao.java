@@ -7,9 +7,10 @@ import relatorios.RelatorioAluno;
 
 
 import javax.swing.*;
+import java.text.ParseException;
 
 public class Execucao {
-    public static void chamaMenuPrincipal() {
+    public static void chamaMenuPrincipal() throws ParseException {
 
         String[] opcoesMenu = {"Cadastros", "Relatórios", "Sair"};
         int opcao = JOptionPane.showOptionDialog(null, "Escolha uma opção: ",
