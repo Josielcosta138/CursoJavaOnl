@@ -28,21 +28,5 @@ public class Validacoes {
     }
 
 
-    public static void validarResultadoFim(String nome, Double media, String resultado ){
-        int resposta = JOptionPane.showConfirmDialog(null," Deseja ver o aluno cadastrado e sua média ?");
-
-        if (resposta == 0){
-            JOptionPane.showMessageDialog(null," SIM!! \n " +
-                    " Aluno "+ nome +
-                    "\n Média: " + media+
-                    "\n Resultado : " + resultado
-            );
-        }else if (resposta == 1){
-            JOptionPane.showMessageDialog(null, "NÃO");
-        } else if (resposta == 2) {
-            JOptionPane.showMessageDialog(null,"CANCELADO");
-        }
-
-    }
 
 }
