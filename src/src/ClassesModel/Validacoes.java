@@ -3,18 +3,21 @@ package ClassesModel;
 import javax.swing.*;
 import cadastros.cadastroProfessor;
 import cadastros.cadastroAluno;
+import execultavel.Execucao;
+
+import java.text.ParseException;
 
 public class Validacoes {
 
     Aluno aluno;
 
-    public static void validarCamposNulo(String  campo){
+    public static void validarCamposNulo(String  campo) throws ParseException {
 
         while (campo == null || campo.isEmpty()){
-            JOptionPane.showMessageDialog(null,"Campo nulo. Informe nome!");
-            campo = JOptionPane.showInputDialog(null," Informe nome!");
+            JOptionPane.showMessageDialog(null,"Campo nulo. Informe campo!");
+            cadastroAluno.cadastrarAluno();
             if (campo == null){
-             cadastroProfessor.cadastrarProfessor();
+                Execucao.chamaMenuPrincipal();
             }
         }
     }
