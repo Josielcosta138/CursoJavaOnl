@@ -4,10 +4,11 @@ import ClassesModel.ProfessorTeste;
 import ClassesModel.Validacoes;
 
 import javax.swing.*;
+import java.text.ParseException;
 
 public class cadastroProfessor {
 
-    public static void cadastrarProfessor(){
+    public static void cadastrarProfessor() throws ParseException {
 
         String nome1 = JOptionPane.showInputDialog(null," Nome 1 Professor");
         ProfessorTeste prof1 = new ProfessorTeste(nome1);

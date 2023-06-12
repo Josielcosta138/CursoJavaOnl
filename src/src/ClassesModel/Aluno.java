@@ -107,6 +107,7 @@ public class Aluno {
 
         } else if (getMedia() >=5 && getMedia() < 7) {
             resultado = ("Recupereção !" +" Média: "+ getMedia());
+
         } else {
             resultado = ("Reprovado !" +" Média: "+ getMedia());
         }
