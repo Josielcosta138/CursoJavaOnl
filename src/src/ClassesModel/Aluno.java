@@ -95,7 +95,6 @@ public class Aluno {
         for (Disciplina disciplina : disciplinas) {
             somaNotas += disciplina.getNota();
         }
-
         return somaNotas / disciplinas.size();
     }
 

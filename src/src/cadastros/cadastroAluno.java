@@ -16,7 +16,7 @@ public class cadastroAluno {
     public static void cadastrarAluno() throws ParseException {
 
 
-        String nome = JOptionPane.showInputDialog(null, "Informe nome");
+        String nome = JOptionPane.showInputDialog(null, "Informe nome", "Cadastro do Aluno", JOptionPane.INFORMATION_MESSAGE);
         Validacoes.validarCamposNulo(nome);
         String dataNascimento = JOptionPane.showInputDialog(null, "Informe data Nascimento dd/MM/yyyy");
         Validacoes.validarCamposNulo(dataNascimento);
@@ -55,15 +55,22 @@ public class cadastroAluno {
 
         int escolha = JOptionPane.showConfirmDialog(null,"Deseja remover alguma disciplina ?");
         if (escolha == 0){
-            String disciplinaRemover = JOptionPane.showInputDialog(null, "Qual a disciplina 1, 2, 3 ou 4? ");
-            aluno.getDisciplinas().remove(Integer.parseInt(disciplinaRemover) - 1);
-            JOptionPane.showMessageDialog(null,"Disciplina removida: " +aluno.getDisciplinas().get(Integer.parseInt(disciplinaRemover)));
+            int continuarRemover  = 0;
+            while (continuarRemover == 0) {
+
+                JOptionPane.showMessageDialog(null,aluno.getDisciplinas());
+
+                String disciplinaRemover = JOptionPane.showInputDialog(null, "Qual a disciplina 1, 2, 3 ou 4? ");
+                aluno.getDisciplinas().remove(Integer.parseInt(disciplinaRemover) - 1);
+                JOptionPane.showMessageDialog(null, "Disciplina removida: " + aluno.getDisciplinas().get(Integer.parseInt(disciplinaRemover)));
+                continuarRemover = JOptionPane.showConfirmDialog(null, " Continuar remover? ");
+            }
         }else if(escolha == 1){
             JOptionPane.showConfirmDialog(null,"Não remover!");
-            //Execucao.chamaMenuPrincipal();
         } else if (escolha == 2) {
             Execucao.chamaMenuPrincipal();
         }
+
 
         int resposta = JOptionPane.showConfirmDialog(null, "Deseja visualizar relatório? ");
         if (resposta == 0) {
